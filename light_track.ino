@@ -7,7 +7,7 @@ int pinServo = 11;                   //PWM pin
 
 int leftValue = 0;
 int rightValue = 0;
-int error = 0;                       //deviation bewtween the 2 sensors
+int error = 0;                       //deviation between the 2 sensors
 int errorAVG = 0;                    //error average - rolling 2 point
 int deadband = 8;
 
@@ -16,7 +16,7 @@ Servo hServo;
 int Position = 45;
 int minPos = 5;
 int maxPos = 165;
-float output = (maxPos - minPos) / 2;  //intial output position
+float output = (maxPos - minPos) / 2;  //initial output position
 
 void setup()
 {
@@ -26,10 +26,10 @@ void setup()
   //set servo to center for alignment purpose
   Serial.println("Moving Servo to Minimum Position");
   hServo.write(minPos);
-  delay(5000);
+  delay(2000);
   Serial.println("Moving Servo to Maximum Position");
   hServo.write(maxPos);
-  delay(5000);
+  delay(2000);
   Serial.println("Moving Servo to Mid-Point");
   hServo.write(output);
   delay(5000);
@@ -55,14 +55,14 @@ void loop()
   
   if (newOutput > maxPos)
   {
-    Serial.println("At Upper Limnit");
+    Serial.println("At Upper Limit");
     newOutput = maxPos;
   }
   else
   {
     if (newOutput < minPos)
   {
-    Serial.println("At Lower Limtit");
+    Serial.println("At Lower Limit");
     newOutput = minPos;
   }
 }
